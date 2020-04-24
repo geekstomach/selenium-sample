@@ -7,14 +7,17 @@ import org.openqa.selenium.support.PageFactory;
 
 public class CareerPage extends TestBase {
 
-/*    @FindBy(xpath = "/html/body/div[1]/div[9]/div/project/section/project-tabs/div/div[1]/div[2]/ul/li[1]/a")
-    WebElement vacancyBtn;*/
 
-    @FindBy(linkText = "Вакансии")
+    @FindBy(partialLinkText = "Образовательный портал GeekBrains") //сюда в принципе в идеале можно будет потом передвать последовательно все компании какие есть по названию
     WebElement vacancyBtn;
+    //Образовательный портал GeekBrains
+/*    //<элемент>[contains(<аттрибут>=<значение>)] => у элемента есть аттрибут равный указанному значению
+    //<элемент>[contains(<аттрибут>,<значение>)] => у элемента есть аттрибут, в значении которого содержится указанное значение
+    @FindBy(xpath = "//*[contains(text(), 'тестировани')]")*/
 
-    @FindBy(xpath = "//*[contains(text(), 'Тестировщик ПО')]")
-    WebElement findByText;
+    @FindBy(partialLinkText = "Преподаватель курса \"Автоматизированное тестирование на Java\"") //сюда в принципе в идеале можно будет потом передвать последовательно все компании какие есть по названию
+            WebElement testVacancyBtn;
+
 
     public CareerPage(){
         PageFactory.initElements(driver, this);
@@ -26,6 +29,11 @@ public class CareerPage extends TestBase {
     }
 
     public String hasText(){
-        return findByText.toString();}
+
+        return testVacancyBtn.toString();}
+
+    public void clickOnVacancy(){
+        vacancyBtn.click();
+    }
 
 }

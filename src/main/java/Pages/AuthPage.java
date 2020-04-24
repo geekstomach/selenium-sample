@@ -1,13 +1,12 @@
 package Pages;
 
 import Base.TestBase;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class AuthPage extends TestBase {
-    //Page Factory - OR:
+
     @FindBy(id="user_email")
     WebElement username;
 
@@ -27,18 +26,12 @@ public class AuthPage extends TestBase {
         return driver.getTitle();
     }
 
-/*    public boolean validateCRMImage(){
-        return crmLogo.isDisplayed();
-    }*/
-
-    public HomePage login(String un, String pwd){
+    public MainPage login(String un, String pwd){
 
         username.sendKeys(un);
         password.sendKeys(pwd);
-        //loginBtn.click();
-        JavascriptExecutor js = (JavascriptExecutor)driver;
-        js.executeScript("arguments[0].click();", loginBtn);
+        loginBtn.click();
 
-        return new HomePage();
+        return new MainPage();
     }
 }

@@ -28,7 +28,7 @@ public class WebEventListener extends TestBase implements WebDriverEventListener
     }
 
     public void beforeNavigateTo(String url, WebDriver driver) {
-        System.out.println("Before navigating to: '" + url + "'");
+
     }
 
     public void afterNavigateTo(String url, WebDriver driver) {
@@ -64,7 +64,7 @@ public class WebEventListener extends TestBase implements WebDriverEventListener
     }
 
     public void afterFindBy(By by, WebElement element, WebDriver driver) {
-
+        System.out.println("Find By'" + by.toString() + "' - result :'" + element.toString() + "'");
     }
 
     public void beforeClickOn(WebElement element, WebDriver driver) {
@@ -72,7 +72,7 @@ public class WebEventListener extends TestBase implements WebDriverEventListener
     }
 
     public void afterClickOn(WebElement element, WebDriver driver) {
-
+        System.out.println("Click On '" + element.toString() + "'");
     }
 
     public void beforeChangeValueOf(WebElement element, WebDriver driver, CharSequence[] keysToSend) {
